@@ -5,15 +5,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.revature.revspace.models.Image;
-import com.revature.revspace.repositories.ImageRepo;
+
+import com.revature.revspace.repositories.ImageRepository;
 
 public class ImageServiceImpl implements ImageService {
 
 		@Autowired
-		ImageRepo imageRepo;
+		ImageRepository imageRepo;
+		
+		@Autowired
+		UserService userService;
 
 	public Optional<Image> getImageName(String Name) {
-		// TODO Auto-generated method stub
 		return getImageName(Name);
 	}
 

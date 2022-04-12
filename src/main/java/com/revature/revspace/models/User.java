@@ -39,6 +39,9 @@ public class User
 
 	@Column(name="last_name", length=50, nullable = false)
 	private String lastName;
+	
+	@Column (name="image")
+	private String image;
 
 	@Column(name="birthday")
 	private Long birthday;
@@ -71,23 +74,25 @@ public class User
     private List<User> following;
 
 	public User() {
-		this("", "", "", null, null, "", "", "", "");
+		this("", "", "","", null, null, "", "", "", "");
 	}
 	
-	public User(int userId, String email, String firstName, String lastName, Long birthday, Long revatureJoinDate,
+
+	public User(int userId, String email, String firstName, String lastName,String image, Long birthday, Long revatureJoinDate,
 			String githubUsername, String title, String location, String aboutMe, List<User> followers,
 			List<User> following) {
 		super();
 		this.userId = userId;
 	}
 	
-	public User(String email, String firstName, String lastName, Long birthday, Long revatureJoinDate, 
+	public User(String email, String firstName, String lastName, String image, Long birthday, Long revatureJoinDate, 
 			String githubUsername, String title, String location, String aboutMe, List<User> followers, 
 			List<User> following) {
 		
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.image = image;
 		this.birthday = birthday;
 		this.revatureJoinDate = revatureJoinDate;
 		this.githubUsername = githubUsername;
@@ -98,11 +103,12 @@ public class User
 		this.following = following;
 	}
 
-	public User(String email, String firstName, String lastName, Long birthday, Long revatureJoinDate, String githubUsername, String title, String location, String aboutMe)
+	public User(String email, String firstName, String lastName, String image, Long birthday, Long revatureJoinDate, String githubUsername, String title, String location, String aboutMe)
 	{
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.image = image;
 		this.birthday = birthday;
 		this.revatureJoinDate = revatureJoinDate;
 		this.githubUsername = githubUsername;
@@ -113,13 +119,13 @@ public class User
 	}
 
 
-	
-	public User(int userId, String email, String firstName, String lastName, Long birthday, Long revatureJoinDate, String githubUsername, String title, String location, String aboutMe)
+	public User(int userId, String email, String firstName, String lastName, String image, Long birthday, Long revatureJoinDate, String githubUsername, String title, String location, String aboutMe)
 	{
 		this.userId = userId;
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.image = image;
 		this.birthday = birthday;
 		this.revatureJoinDate = revatureJoinDate;
 		this.githubUsername = githubUsername;
@@ -168,6 +174,14 @@ public class User
 		this.lastName = lastName;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	public Long getBirthday()
 	{
 		return birthday;
@@ -242,8 +256,6 @@ public class User
 	}
 	
 	
-
-
 	public void setFollowing(List<User> following) {
 		this.following = following;
 	}
@@ -254,19 +266,19 @@ public class User
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		User user = (User) o;
-		return getUserId() == user.getUserId() && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName()) && Objects.equals(getBirthday(), user.getBirthday()) && Objects.equals(getRevatureJoinDate(), user.getRevatureJoinDate()) && Objects.equals(getGithubUsername(), user.getGithubUsername()) && Objects.equals(getTitle(), user.getTitle()) && Objects.equals(getLocation(), user.getLocation()) && Objects.equals(getAboutMe(), user.getAboutMe());
+		return getUserId() == user.getUserId() && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName())&& Objects.equals(getImage(), user.getImage()) && Objects.equals(getBirthday(), user.getBirthday()) && Objects.equals(getRevatureJoinDate(), user.getRevatureJoinDate()) && Objects.equals(getGithubUsername(), user.getGithubUsername()) && Objects.equals(getTitle(), user.getTitle()) && Objects.equals(getLocation(), user.getLocation()) && Objects.equals(getAboutMe(), user.getAboutMe());
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return Objects.hash(getUserId(), getEmail(), getFirstName(), getLastName(), getBirthday(), getRevatureJoinDate(), getGithubUsername(), getTitle(), getLocation(), getAboutMe());
+		return Objects.hash(getUserId(), getEmail(), getFirstName(), getLastName(),getImage(), getBirthday(), getRevatureJoinDate(), getGithubUsername(), getTitle(), getLocation(), getAboutMe());
 	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", birthday=" + birthday + ", revatureJoinDate=" + revatureJoinDate + ", githubUsername="
+				+ "image =" + image + ", birthday=" + birthday + ", revatureJoinDate=" + revatureJoinDate + ", githubUsername="
 				+ githubUsername + ", title=" + title + ", location=" + location + ", aboutMe=" + aboutMe
 				+ ", followers=" + followers + ", following=" + following + "]";
 	}

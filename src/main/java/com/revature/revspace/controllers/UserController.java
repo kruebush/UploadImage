@@ -37,7 +37,7 @@ public class UserController
         return this.us.getLoggedInUser();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping(value= "/users/{id}")
     public User getUserById(@PathVariable(name = "id") String id)
     {
         //parsing int from string can(should) be done somewhere else
