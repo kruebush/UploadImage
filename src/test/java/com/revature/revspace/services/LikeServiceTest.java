@@ -30,7 +30,7 @@ public class LikeServiceTest {
     @Test
     void getIDFor(){
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Post post = new Post(2, credentials.getUser(), "body2","image",1234569L,true,null);
 

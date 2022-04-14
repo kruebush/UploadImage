@@ -61,7 +61,7 @@ public class PostControllerTest {
     @Autowired
     Gson gson;
 
-    User user = new User(1,"email@revature.net","firstname", "lastname", 12332254L, 1232222L,"username","title", "location", "aboutme");
+    User user = new User(1,"email@revature.net","firstname", "lastname","image", 12332254L, 1232222L,"username","title", "location", "aboutme");
     Credentials credentials  =new Credentials(1,user,"password");
     Post post = new Post(1,user,"body","image",1234569L,true,null);
     Like like = new Like(1,user,post);
@@ -71,7 +71,7 @@ public class PostControllerTest {
     @WithMockUser(username=TEST_EMAIL)
     void addPost() throws Exception
     {
-        User user = new User("abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User("abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(credentials.getUser(), "body","image",1234569L,true,null);
@@ -91,7 +91,7 @@ public class PostControllerTest {
     void getPostById() throws Exception
     {
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -109,7 +109,7 @@ public class PostControllerTest {
     @WithMockUser(username=TEST_EMAIL)
     void updatePost() throws Exception
     {
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post( credentials.getUser(), "body","image",1234569L,true,null);
@@ -125,7 +125,7 @@ public class PostControllerTest {
     @WithMockUser(username=TEST_EMAIL)
     void deletePost() throws Exception
     {
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Mockito.when(service.delete(1))
@@ -141,7 +141,7 @@ public class PostControllerTest {
     void getPostByIdWithoutInt() throws Exception
     {
         String id = "id";
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -158,7 +158,7 @@ public class PostControllerTest {
     void getNextTen() throws Exception
     {
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
 
@@ -187,7 +187,7 @@ public class PostControllerTest {
     void getNextTenWithoutInt() throws Exception
     {
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","imgae", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
 //        Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -218,7 +218,7 @@ public class PostControllerTest {
     void getNextTenWithString() throws Exception
     {
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
 //        Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -260,7 +260,7 @@ public class PostControllerTest {
     @WithMockUser(username=TEST_EMAIL)
     void getPostByIdNull() throws Exception
     {
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = null;
@@ -276,7 +276,7 @@ public class PostControllerTest {
     @WithMockUser(username=TEST_EMAIL)
     void deletePostWithoutId() throws Exception
     {
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         System.out.println(credentials);
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);

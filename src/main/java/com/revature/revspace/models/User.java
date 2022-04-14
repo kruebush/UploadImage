@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.revature.revspace.util.UserSerializer;
 
+import lombok.Data;
+
 
 @Entity
 @Table(name="users")
@@ -73,7 +75,7 @@ public class User
     @JoinTable(name = "followers", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "followerId"))
     private List<User> following;
 
-	public User() {
+    public User() {
 		this("", "", "","", null, null, "", "", "", "");
 	}
 	
@@ -85,14 +87,13 @@ public class User
 		this.userId = userId;
 	}
 	
-	public User(String email, String firstName, String lastName, String image, Long birthday, Long revatureJoinDate, 
+	public User(String email, String firstName, String lastName, Long birthday, Long revatureJoinDate, 
 			String githubUsername, String title, String location, String aboutMe, List<User> followers, 
 			List<User> following) {
 		
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.image = image;
 		this.birthday = birthday;
 		this.revatureJoinDate = revatureJoinDate;
 		this.githubUsername = githubUsername;
@@ -260,32 +261,47 @@ public class User
 		this.following = following;
 	}
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		User user = (User) o;
-		return getUserId() == user.getUserId() && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getFirstName(), user.getFirstName()) && Objects.equals(getLastName(), user.getLastName())&& Objects.equals(getImage(), user.getImage()) && Objects.equals(getBirthday(), user.getBirthday()) && Objects.equals(getRevatureJoinDate(), user.getRevatureJoinDate()) && Objects.equals(getGithubUsername(), user.getGithubUsername()) && Objects.equals(getTitle(), user.getTitle()) && Objects.equals(getLocation(), user.getLocation()) && Objects.equals(getAboutMe(), user.getAboutMe());
-	}
 
 	@Override
-	public int hashCode()
-	{
-		return Objects.hash(getUserId(), getEmail(), getFirstName(), getLastName(),getImage(), getBirthday(), getRevatureJoinDate(), getGithubUsername(), getTitle(), getLocation(), getAboutMe());
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(aboutMe, other.aboutMe) && Objects.equals(birthday, other.birthday)
+				&& Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(followers, other.followers) && Objects.equals(following, other.following)
+				&& Objects.equals(githubUsername, other.githubUsername) && Objects.equals(image, other.image)
+				&& Objects.equals(lastName, other.lastName) && Objects.equals(location, other.location)
+				&& Objects.equals(notifications, other.notifications)
+				&& Objects.equals(revatureJoinDate, other.revatureJoinDate) && Objects.equals(title, other.title)
+				&& userId == other.userId;
 	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(aboutMe, birthday, email, firstName, followers, following, githubUsername, image, lastName,
+				location, notifications, revatureJoinDate, title, userId);
+	}
+
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
-				+ "image =" + image + ", birthday=" + birthday + ", revatureJoinDate=" + revatureJoinDate + ", githubUsername="
-				+ githubUsername + ", title=" + title + ", location=" + location + ", aboutMe=" + aboutMe
-				+ ", followers=" + followers + ", following=" + following + "]";
+				+ ", image=" + image + ", birthday=" + birthday + ", revatureJoinDate=" + revatureJoinDate
+				+ ", githubUsername=" + githubUsername + ", title=" + title + ", location=" + location + ", aboutMe="
+				+ aboutMe + ", notifications=" + notifications + ", followers=" + followers + ", following=" + following
+				+ "]";
 	}
+
+
 	
 
-	}	
-	
-
+    
+}
 
 

@@ -25,7 +25,7 @@ public class CredentialRepoTest {
     @Test
     @Rollback
     void findByEmail(){
-        User user = new User("abc@email.com", "name", "name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User("abc@email.com", "name", "name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         user = userRepo.save(user);
 
         Credentials credentials = new Credentials(user, "password");

@@ -49,6 +49,7 @@ public class CrudServiceTests
 			user.getEmail(),
 			user.getFirstName(),
 			user.getLastName(),
+			user.getImage(),
 			user.getBirthday(),
 			user.getRevatureJoinDate(),
 			user.getGithubUsername(),

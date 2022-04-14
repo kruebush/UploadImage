@@ -6,7 +6,9 @@ import com.revature.revspace.utils.LoggedInUser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.omg.CORBA.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +45,7 @@ public class UserServiceImpl implements UserService
     @Override
     public User getLoggedInUser()
     {
+    	System.out.println("this.loggedInUser.getUser()"+this.loggedInUser.getUser());
         return this.loggedInUser.getUser();
     }
 
@@ -100,6 +103,16 @@ public class UserServiceImpl implements UserService
 		
 		return searchedUser;
 	}
+
+	@Override
+	public String getUserImageUrlById(int userId) {
+		// TODO Auto-generated method stub
+		Optional<User> user = ur.findById(userId);
+		User u = user.get();
+		return u.getImage();
+				}
+
+
     
     
     

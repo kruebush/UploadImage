@@ -59,6 +59,28 @@ public class UserController
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping(value= "/users/image/{id}")
+    public String getUserImageById(@PathVariable(name = "id") String id)
+    {
+        //parsing int from string can(should) be done somewhere else
+        int safeId;
+        try
+        {
+            safeId = Integer.parseInt(id);
+        }catch (NumberFormatException e)
+        {
+            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+
+        String foundUser = us.getUserImageUrlById(safeId);
+        if (null != foundUser)
+        {
+            return foundUser;
+        }else
+        {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
     
     @GetMapping("/users/email/{email}")
     public User getUserByEmail(@PathVariable(name = "email") String email)

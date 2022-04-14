@@ -59,7 +59,7 @@ public class LikeControllerTest {
 //        int safeId=1;
 //        ls.get(safeId);
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -79,7 +79,7 @@ public class LikeControllerTest {
 //        int safeId=1;
 //        ls.get(safeId);
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -100,7 +100,7 @@ public class LikeControllerTest {
     @WithMockUser(username=TEST_EMAIL)
     void getAllLikes() throws Exception{
         List<Like> likes = new ArrayList<>();
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -126,7 +126,7 @@ public class LikeControllerTest {
 //        Assertions.assertEquals(fakeLike,actualLike);
 
 
-        User user = new User("abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User("abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(credentials.getUser(), "body","image",1234569L,true,null);
@@ -147,7 +147,7 @@ public class LikeControllerTest {
 //        int safeId=1;
 //        ls.get(safeId);
 
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);
@@ -164,7 +164,7 @@ public class LikeControllerTest {
     @WithMockUser(username=TEST_EMAIL)
     void updateLikes() throws Exception{
         List<Like> likes = new ArrayList<>();
-        User user = new User(1,"abc@email.com", "name","name", 8708779L, 234243234L, "git", "title", "location", "aboutme");
+        User user = new User(1,"abc@email.com", "name","name","image", 8708779L, 234243234L, "git", "title", "location", "aboutme");
         Credentials credentials = new Credentials(1,user,"password");
         Mockito.when(credentialsRepo.findByUserEmail(user.getEmail())).thenReturn(credentials);
         Post post = new Post(1, credentials.getUser(), "body","image",1234569L,true,null);

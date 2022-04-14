@@ -8,6 +8,8 @@ import com.revature.revspace.repositories.UserRepo;
 public interface UserService extends CrudService<User, Integer, UserRepo>
 {
 	public User getUserByEmail(String email);
+	public String getUserImageUrlById(int userId );
+
 	public List<User> getAllUserByName(String firstname, String lastname);
 	public List<User> getAllUserByEmail(String email);
 
