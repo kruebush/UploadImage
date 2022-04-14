@@ -18,9 +18,9 @@ export class EditUserProfileComponent implements OnInit, DoCheck {
 
   expandThis=false;
   show=false;
-
+  imageURL:any;
   url: any; //Angular 11, for stricter type
-msg = "";
+  msg = "";
 
 //selectFile(event) { //Angular 8
 
@@ -30,6 +30,7 @@ msg = "";
       .subscribe(url => {
         console.log(url);
         this.url= url;
+        this.imageURL=url;
       });
   
       //CODE TO DISPLAY IMAGE AS CLICKED
@@ -49,7 +50,7 @@ msg = "";
   }
   ngDoCheck(): void {
     if (this.loginService.getLoginInfo().user != this.currentUser) {
-      this.resetInputFields();
+    //  this.resetInputFields();
     }
   }
 
@@ -141,7 +142,24 @@ msg = "";
     this.locationInput = this.currentUser.location;
     this.aboutMeInput = this.currentUser.aboutMe;
     this.email = this.currentUser.email;
+/*      //Get authentication information
+     const authToken:string = 'Basic ' + btoa('atano@gmail.com' + ":" + 'Atano123');
+     const myHeaders:HttpHeaders = new HttpHeaders({
+       'Authorization': authToken
+     });
+    this.userService.getImageByUserId(this.currentUser.userId,myHeaders).subscribeurl => {
+    console.log("###THE USRL IS :"+url);
+     this.url= url;
+    }); */
+    console.log("####this.currentUser.image"+this.currentUser.image);
+    console.log("####this.currentUser.email"+this.currentUser.email);
 
+    console.log("####this.currentUser.firstName"+this.currentUser.firstName); 
+       console.log("####this.currentUser.userid"+this.currentUser.userId);
+       console.log("####this.currentUser.imageINput"+this.imageURL);
+    this.url = this.imageURL
+
+    //this.url = "https://i.ibb.co/DRZPdCQ/a3.jpg"
 
     let joinUnixDate = this.currentUser.revatureJoinDate;
     let birthdayUnixDate = this.currentUser.birthday;

@@ -31,7 +31,9 @@ export class ImageService {
   .pipe(map((response)=>response['data']['url']));      
 }
  
-  
+  getImage(userId:number){
+    
+  }
 
 
 }

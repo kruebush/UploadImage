@@ -21,6 +21,7 @@ export class UserService {
   getUserById(id: number, myHeaders: HttpHeaders): Observable<User> {
     return this.http.get<User>(this.backendService.getBackendURL() + '/users/' + id, { headers: myHeaders });
   }
+  
 
   getUserByEmail(email: string): Observable<User> {
     return this.http.get<User>(this.backendService.getBackendURL() + '/users/email/' + email);
@@ -28,6 +29,10 @@ export class UserService {
 
   getPasswordByEmail(email: string, myHeaders: HttpHeaders): Observable<string>{
     return this.http.get<string>(this.backendService.getBackendURL() + '/users/password/' + email, {headers: myHeaders});
+  }
+
+  getImageByUserId(userId: number,  myHeaders: HttpHeaders ): Observable<string>{
+    return this.http.get<string>(this.backendService.getBackendURL() + '/users/image/' + userId,{ headers: this.headers } );
   }
 
   getAllUsers(): Observable<User[]> {

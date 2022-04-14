@@ -1,5 +1,6 @@
 
 <!--**********************-->
+<div id ="contents_wrapper">
 <nav class="navbar navbar-expand-lg navbar-light "
   style="padding: 1% 2%; background-color: #B9B9BA;font-family: Futura-Std-Book;">
 
@@ -44,7 +45,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <!-- <li><a class="dropdown-item" [routerLink]="['/viewprofile', getUserId()]">View Your Profile</a></li> -->
-          <li><a class="dropdown-item" [routerLink]="['/editprofile']">Profile</a></li>
+          <li><a class="dropdown-item" id="profile" [routerLink]="['/editprofile']">Profile</a></li>
           <li><a class="dropdown-item" [routerLink]="['/changePassword']">Change Password</a></li>
           <li><a class="dropdown-item" href="index.html">Logout</a></li>
         </ul>
@@ -57,5 +58,5 @@
 <router-outlet *ngIf="isLoggedIn()"></router-outlet>
 
 <app-top style="position: sticky; left: 90%; top: 90%;"></app-top>
-
+</div>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
