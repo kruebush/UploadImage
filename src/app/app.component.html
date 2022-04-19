@@ -7,9 +7,10 @@
   <div class="container-fluid" style="color: black;">
     <a class="navbar-brand" routerLink="postfeed" href="" style="font-weight: bold;"><img alt="image"
         src="./assets/img/revaturelogo.png" height="40" width="auto"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <div id="menubar"><span class="navbar-toggler-icon"></span></div>
     </button>
     <div *ngIf="isLoggedIn()" class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">

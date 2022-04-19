@@ -2,24 +2,25 @@
 <div id="edit-user-profile-div" style="margin: 2% 10%;border-left: #474C55 solid 3px;border-right: #474C55 solid 3px;">
     <!-- <h1 style="text-align: center;">Edit your profile</h1> -->
     <h1 style="text-align: center;">Profile</h1> 
-    <button class="btn btn-dark" id="edit_profile" (click)="toggleEdit()"><i class="fa fa-pencil"></i></button>
+    <button class="btn btn-dark" id="edit_profile" (click)="toggleEdit()" *ngIf="isButtonVisable"><i class="fa fa-pencil"></i></button>
     <div style="margin: 2% 5% 2% 5%;">
         <div class="row align-items-start" style="background-color: #FCB414;border-radius: 10px;padding: 2%;margin: 2% 0%;">
             <div class="col">
     <!--ADDED CODE FOR PROFILE IMAGE    -->
+    <div style="margin: 2% 5% 2% 5%;">
     <div align="center" style="border-radius: 3rem">
         <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
         <!-- <div><img [src]="url" *ngIf="url" class="rounded-circle" width="350" type="file" (change)="selectFile($event)"></div>  -->
     </div>
-
+ 
     <div class="wrapper">
-        <label for="edit-user-image-input"></label>
-        <img [src]="url" *ngIf="isViewable">
-        <input *ngIf="isEditable" src="{{currentUser.image}}" class="form-control" id="edit-user-image-input" type="file" class="profile_pic" [placeholder]="currentUser.image" (change)="selectFile($event)" [(ngModel)]="imageInput">
-        <div *ngIf="currentUser.image"><img class="img-fluid img-responsive" [src]="currentUser.image"></div>
+        <!-- <label *ngIf="isViewable"></label> 
+        <img [src]="url" *ngIf="isViewable"> -->
+        <div *ngIf="currentUser.image"><img class="img-fluid img-responsive" [src]="currentUser.image" id="image"><br/></div>
+        <input *ngIf="isEditable" src="{{currentUser.image}}" class="form-control" id="edit-user-image-input" type="file" class="profile_pic" (change)="selectFile($event)" [(ngModel)]="imageInput">
+    
     </div>
 
-    <div style="margin: 2% 5% 2% 5%;">
         <div class="row align-items-start" style="background-color: #FCB414;border-radius: 10px;padding: 2%;margin: 2% 0%;">
             <div class="col">
                     <!-- first_name varchar(50) not null -->
@@ -43,7 +44,8 @@
         <div class="row align-items-start" style="border-radius: 10px;margin: 0% 0%;" >
             <div class="col" style="background-color: #F26925;border-radius: 10px; padding: 2%; margin: 2% .5% 2% 0%;color: white;">
                 <h3>Revature Information</h3>
-                <label for="edit-user-title-input"> <b>Title:</b> </label> <br>
+                <label for="edit-user-title-input"> <b>Title: Mr./Ms./Mrs.
+                </b> </label> <br>
                 <label *ngIf="isViewable">{{currentUser.title}}</label>
                 <input *ngIf="isEditable" class="form-control" id="edit-user-title-input" type="text" maxlength="100" size="140" [placeholder]="currentUser.title" [(ngModel)]="titleInput">
                 <br> 

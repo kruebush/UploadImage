@@ -64,6 +64,7 @@ export class EditUserProfileComponent implements OnInit, DoCheck {
   //Editing variables
   isViewable = true;
   isEditable = false;
+  isButtonVisable = true;
 
   //Logged in user information
   currentUser: User;
@@ -99,6 +100,7 @@ export class EditUserProfileComponent implements OnInit, DoCheck {
   toggleEdit() {
     this.isEditable = !this.isEditable;
     this.isViewable = !this.isViewable;
+    this.isButtonVisable = !this.isButtonVisable;
   }
 
   //Converts Date and String data types from the date input tags into unix time (in ms)

@@ -6,8 +6,8 @@
     }
 
      .wrapper {
-        height: 300px;
-        width: 300px;
+        height: 250px;
+        width: 250px;
         position: relative;
         border: 5px solid rgb(0, 0, 0);
         border-radius: 100%;
@@ -24,7 +24,7 @@
         color: transparent;
         width: 100%;
         box-sizing: border-box;
-        padding: 21px 120px;
+        padding: 13px 75px;
         cursor: pointer;
         transition: 0.05s;
         background: rgba(0, 0, 0, 0.5);
@@ -34,8 +34,8 @@
     img {
         object-fit: cover;
         position: absolute;
-        height: 300px;
-        width: 300px;
+        height: 250px;
+        width: 250px;
         overflow: hidden;
     }
 
@@ -52,7 +52,7 @@
         -webkit-user-select: none;
     }
 
-    .profile_pic::after {
+    /* .profile_pic::after {
         content: 'Update';
         font-family: 'arial';
         font-weight: bold;
@@ -62,7 +62,7 @@
         font-size: 14px;
         position: absolute;
 
-    }
+    } */
 
     .profile_pic:hover {
         opacity: 1;
