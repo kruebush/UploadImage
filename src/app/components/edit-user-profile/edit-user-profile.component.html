@@ -14,6 +14,7 @@
 
     <div class="wrapper">
         <label for="edit-user-image-input"></label>
+
         <img [src]="url" *ngIf="isViewable">
         <input *ngIf="isEditable" src="{{currentUser.image}}" class="form-control" id="edit-user-image-input" type="file" class="profile_pic" [placeholder]="currentUser.image" (change)="selectFile($event)" [(ngModel)]="imageInput">
         <div *ngIf="currentUser.image"><img class="img-fluid img-responsive" [src]="currentUser.image"></div>
